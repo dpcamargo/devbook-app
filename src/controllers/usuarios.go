@@ -4,7 +4,6 @@ import (
 	"app/src/respostas"
 	"bytes"
 	"encoding/json"
-	"log"
 	"net/http"
 )
 
