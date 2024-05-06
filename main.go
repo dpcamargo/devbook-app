@@ -5,18 +5,19 @@ import (
 	"log"
 	"net/http"
 
+	"app/src/config"
 	"app/src/router"
 	"app/src/router/rotas"
 	"app/src/utils"
 )
 
 func main() {
-
+	config.Carregar()
 	utils.CarregarTemplates()
-	
+
 	r := router.Gerar()
 	h := rotas.Configurar(r)
-	
-	fmt.Println("Rodando Webapp")
+
+	fmt.Printf("Rodando Webapp na porta %d\n", config.Porta)
 	log.Fatal(http.ListenAndServe(":5000", h))
 }
