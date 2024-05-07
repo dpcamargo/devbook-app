@@ -15,9 +15,7 @@ func Logger(proximaFunc http.HandlerFunc) http.HandlerFunc {
 
 func Autenticar(proximaFunc http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-
-		_, err := cookies.Ler(r)
-		if err.Error() == "http: named cookie not present" {
+		if _, err := cookies.Ler(r); err != nil {
 			http.Redirect(w, r, "/login", http.StatusSeeOther)
 			return
 		}
