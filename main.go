@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	config.Carregar()	
+	config.Carregar()
 	cookies.Configurar()
 
 	utils.CarregarTemplates()
